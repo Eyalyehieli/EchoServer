@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1626276638 source:/home/eyalyehieli/Desktop/EyalCProgram/UDPClient/UDPClient/main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+

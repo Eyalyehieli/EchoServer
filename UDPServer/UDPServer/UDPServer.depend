@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1626556236 source:/home/eyalyehieli/Desktop/EyalCProgram/EchoServer/UDPServer/UDPServer/main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<unistd.h>
+	"die.h"
+
+1626555748 /home/eyalyehieli/Desktop/EyalCProgram/EchoServer/UDPServer/UDPServer/die.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<unistd.h>
+

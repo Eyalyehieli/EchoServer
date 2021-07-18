@@ -6,27 +6,23 @@
 #include<stdlib.h> //exit(0);
 #include<arpa/inet.h>
 #include<sys/socket.h>
-
+#include <unistd.h>
+#include "die.h"
 #define BUFLEN 512	//Max length of buffer
 #define PORT 8888	//The port on which to listen for incoming data
-
-void die(char *s)
-{
-	perror(s);
-	exit(1);
-}
 
 int main(void)
 {
 	struct sockaddr_in si_me, si_other;
 
-	int s, i, slen = sizeof(si_other) , recv_len;
+	int s, slen = sizeof(si_other) , recv_len;
 	char buf[BUFLEN];
 
 	//create a UDP socket
 	if ((s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
 	{
-		die("socket");
+		//die("socket");
+		DIE("socket",s);
 	}
 
 	// zero out the structure
@@ -39,19 +35,22 @@ int main(void)
 	//bind socket to port
 	if( bind(s , (struct sockaddr*)&si_me, sizeof(si_me) ) == -1)
 	{
-		die("bind");
+		//die("bind");
+		DIE("bind",s);
 	}
 
 	//keep listening for data
 	while(1)
 	{
-		printf("Waiting for data...");
+		printf("Waiting for data...\n");
+		printf("Press CTRL C for exit\n");
 		fflush(stdout);
 
 		//try to receive some data, this is a blocking call
-		if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == -1)
+		if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, (socklen_t *restrict)&slen)) == -1)
 		{
-			die("recvfrom()");
+			//die("recvfrom()");
+			DIE("recvfrom()",s);
 		}
         buf[recv_len]='\0';
 		//print details of the client/peer and the data received
@@ -61,7 +60,8 @@ int main(void)
 		//now reply the client with the same data
 		if (sendto(s, buf, recv_len, 0, (struct sockaddr*) &si_other, slen) == -1)
 		{
-			die("sendto()");
+			//die("sendto()");
+			DIE("sendto()",s);
 		}
 	}
 

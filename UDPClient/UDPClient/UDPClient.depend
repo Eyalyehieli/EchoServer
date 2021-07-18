@@ -6,3 +6,21 @@
 	<arpa/inet.h>
 	<sys/socket.h>
 
+1626558513 source:/home/eyalyehieli/Desktop/EyalCProgram/EchoServer/UDPClient/UDPClient/main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<unistd.h>
+	<signal.h>
+	"die.h"
+
+1626555813 /home/eyalyehieli/Desktop/EyalCProgram/EchoServer/UDPClient/UDPClient/die.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<arpa/inet.h>
+	<sys/socket.h>
+	<unistd.h>
+

@@ -21,6 +21,10 @@ int main(void)
         return(closeServer());
     // processing until finish or error occurs
     if (ProcessingServer())
-        return(closeServer());
+    {
+    printf("success");
+    }
+    closeServer();
+
 
 }

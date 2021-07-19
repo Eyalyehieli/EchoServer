@@ -25,5 +25,9 @@ int main(void)
         return(closeClient());
     // processing until finishing by CTRL-C  or error occurs
     if (ProcessingClient())
-        return(closeClient());
+    {
+       printf("seccess");
+    }
+    closeClient();
+
 }

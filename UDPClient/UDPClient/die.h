@@ -11,7 +11,6 @@
 #define DIE(error_string,socket) {\
         perror(error_string);\
         close(socket);\
-        return(1);\
         }
 
 #endif // DIE_H_INCLUDED
